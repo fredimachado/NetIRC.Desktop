@@ -21,7 +21,7 @@
             <Label Content="1.0.0.0" Margin="0,10,0,0" />
         </StackPanel>
         <Separator />
-        <Label Content="Simple Desktop IRC Client based on NetIRC open-source library." />
+        <Label Content="Simple Desktop IRC Client built with NetIRC open-source library." />
         <Label>
             <Hyperlink NavigateUri="http://github.com/fredimachado/NetIRC.Desktop" RequestNavigate="Hyperlink_RequestNavigate">
                 <TextBlock Text="https://github.com/fredimachado/NetIRC.Desktop" />
