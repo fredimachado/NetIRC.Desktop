@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="NetIRC.Desktop.Views.SendMessageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NetIRC.Desktop.Views"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignWidth="800" d:Background="White">
+    <DockPanel Height="30">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     VerticalAlignment="Stretch"
+                     VerticalContentAlignment="Center">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding SendMessageCommand}"
+                                Key="Return" />
+                </TextBox.InputBindings>
+            </TextBox>
+            <Button Grid.Column="1"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Command="{Binding SendMessageCommand}">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <iconPacks:PackIconBoxIcons Width="18"
+                                                    Height="18"
+                                                    VerticalAlignment="Center"
+                                                    Kind="RegularSend" />
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+        </Grid>
+    </DockPanel>
+</UserControl>

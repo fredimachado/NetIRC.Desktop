@@ -38,6 +38,6 @@ namespace NetIRC.Desktop.ViewModels
             }
         }
 
-        public override string ToString() => Settings.Default.ServerName ?? "Unknown";
+        public override string ToString() => Settings.Default.ServerName ?? "Server";
     }
 }

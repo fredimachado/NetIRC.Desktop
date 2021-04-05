@@ -101,11 +101,5 @@ namespace NetIRC.Desktop
 
             await client.SendAsync(new JoinMessage(channel));
         }
-
-        private void UsersListView_Loaded(object sender, RoutedEventArgs e)
-        {
-            var view = CollectionViewSource.GetDefaultView(((ListBox)e.OriginalSource).ItemsSource) as ListCollectionView;
-            view.CustomSort = new ChannelUserComparer();
-        }
     }
 }
