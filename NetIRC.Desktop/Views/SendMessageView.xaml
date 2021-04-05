@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NetIRC.Desktop.Views"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignWidth="800" d:Background="White">
+             d:DesignWidth="800">
     <DockPanel Height="30">
         <Grid>
             <Grid.ColumnDefinitions>

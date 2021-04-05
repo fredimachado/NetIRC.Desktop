@@ -1,12 +1,10 @@
 ﻿using MahApps.Metro.Controls;
-using NetIRC;
 using NetIRC.Connection;
-using NetIRC.Messages;
 using NetIRC.Desktop.ViewModels;
 using NetIRC.Desktop.Views;
+using NetIRC.Messages;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;

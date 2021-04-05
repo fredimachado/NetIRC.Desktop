@@ -19,7 +19,7 @@ namespace NetIRC.Desktop.ViewModels
                 return;
             }
 
-            if (Message.StartsWith('/'))
+            if (Message.StartsWith("/"))
             {
                 Messages.Add(ViewModels.Message.Received(new ServerMessage("Oops! Commands are not implemented yet...")));
                 return;

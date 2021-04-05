@@ -60,7 +60,7 @@
                 <DataTemplate DataType="{x:Type viewModels:QueryViewModel}" >
                     <views:QueryView />
                 </DataTemplate>
-                
+
                 <DataTemplate DataType="{x:Type viewModels:ChannelViewModel}" >
                     <views:ChannelView />
                 </DataTemplate>
