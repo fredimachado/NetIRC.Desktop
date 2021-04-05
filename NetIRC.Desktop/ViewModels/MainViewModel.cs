@@ -1,12 +1,23 @@
-﻿using NetIRC;
+﻿using MvvmHelpers.Commands;
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Windows.Input;
 
 namespace NetIRC.Desktop.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
         public ObservableCollection<TabItemViewModel> Tabs { get; } = new ObservableCollection<TabItemViewModel>();
+
+        public ICommand ShowSettingsWindow { get; }
+        public ICommand ShowAboutWindow { get; }
+
+        public MainViewModel(Action showSettingsAction, Action showAboutAction)
+        {
+            ShowSettingsWindow = new Command(showSettingsAction);
+            ShowAboutWindow = new Command(showAboutAction);
+        }
 
         public void RegisterClient(Client client)
         {

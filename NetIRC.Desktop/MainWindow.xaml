@@ -18,7 +18,7 @@
 
     <mah:MetroWindow.RightWindowCommands>
         <mah:WindowCommands>
-            <Button Content="Settings" x:Name="SettingsButton" ToolTip="Settings">
+            <Button Content="Settings" ToolTip="Settings" Command="{Binding ShowSettingsWindow}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <iconPacks:PackIconBoxIcons Width="18"
@@ -28,7 +28,7 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button Content="About" x:Name="AboutButton" ToolTip="About">
+            <Button Content="About" ToolTip="About" Command="{Binding ShowAboutWindow}">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <iconPacks:PackIconBoxIcons Width="18"

@@ -36,11 +36,8 @@ namespace NetIRC.Desktop
         {
             InitializeComponent();
 
-            mainViewModel = new MainViewModel();
+            mainViewModel = new MainViewModel(ShowSettingsWindowDialog, ShowAboutWindowDialog);
             DataContext = mainViewModel;
-
-            SettingsButton.Click += (s, e) => ShowSettingsWindowDialog();
-            AboutButton.Click += (s, e) => ShowAboutWindowDialog();
 
             ContentRendered += MainWindow_ContentRendered;
         }
