@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using NetIRC.Desktop.Models;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace NetIRC.Desktop.ViewModels

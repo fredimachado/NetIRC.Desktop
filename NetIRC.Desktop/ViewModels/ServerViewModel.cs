@@ -21,7 +21,7 @@ namespace NetIRC.Desktop.ViewModels
 
             if (Message.StartsWith("/"))
             {
-                Messages.Add(ViewModels.Message.Received(new ServerMessage("Oops! Commands are not implemented yet...")));
+                Messages.Add(Models.Message.Received(new ServerMessage("Oops! Commands are not implemented yet...")));
                 return;
             }
 
@@ -34,7 +34,7 @@ namespace NetIRC.Desktop.ViewModels
         {
             foreach (ServerMessage message in e.NewItems)
             {
-                App.Dispatcher.Invoke(() => Messages.Add(ViewModels.Message.Received(message)));
+                App.Dispatcher.Invoke(() => Messages.Add(Models.Message.Received(message)));
             }
         }
 

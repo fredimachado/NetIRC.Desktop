@@ -25,7 +25,7 @@ namespace NetIRC.Desktop.ViewModels
                 return;
             }
 
-            Messages.Add(ViewModels.Message.Sent(new QueryMessage(App.Client.User, Message)));
+            Messages.Add(Models.Message.Sent(new QueryMessage(App.Client.User, Message)));
             await App.Client.SendAsync(new PrivMsgMessage(Query.Nick, Message));
 
             Message = string.Empty;
@@ -35,7 +35,7 @@ namespace NetIRC.Desktop.ViewModels
         {
             foreach (QueryMessage message in e.NewItems)
             {
-                App.Dispatcher.Invoke(() => Messages.Add(ViewModels.Message.Received(message)));
+                App.Dispatcher.Invoke(() => Messages.Add(Models.Message.Received(message)));
             }
         }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetIRC.Desktop.ViewModels
+namespace NetIRC.Desktop.Models
 {
     public class Message
     {
