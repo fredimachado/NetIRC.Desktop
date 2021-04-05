@@ -10,7 +10,6 @@
         xmlns:local="clr-namespace:NetIRC.Desktop"
         xmlns:views="clr-namespace:NetIRC.Desktop.Views"
         mc:Ignorable="d"
-        x:Name="mainWindow"
         FontSize="14"
         Title="NetIRC Desktop"
         Height="800" Width="1400"

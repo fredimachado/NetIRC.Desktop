@@ -31,19 +31,19 @@
             </Grid.RowDefinitions>
 
             <Label Content="Nickname:" HorizontalAlignment="Right" />
-            <TextBox x:Name="NickTextBox" Grid.Column="1" Margin="5,0,0,5"
+            <TextBox Grid.Column="1" Margin="5,0,0,5"
                      Text="{Binding Nick}" />
 
             <Label Grid.Row="1" Content="Alternative:" HorizontalAlignment="Right" />
-            <TextBox x:Name="AltTextBox" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
                      Text="{Binding Alternative}" />
 
             <Label Grid.Row="2" Content="Name:" HorizontalAlignment="Right" />
-            <TextBox x:Name="RealNameTextBox" Grid.Row="2" Grid.Column="1" Margin="5,0,0,0"
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,0,0,0"
                      Text="{Binding RealName}" />
 
             <Label Grid.Row="3" Content="Channel:" HorizontalAlignment="Right" />
-            <TextBox x:Name="ChannelTextBox" Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
                      Text="{Binding DefaultChannel}" />
         </Grid>
         
@@ -61,19 +61,19 @@
             </Grid.RowDefinitions>
 
             <Label Content="Server Name:" HorizontalAlignment="Right" />
-            <TextBox x:Name="ServerNameTextBox" Grid.Column="1" Margin="5,0,0,5"
+            <TextBox Grid.Column="1" Margin="5,0,0,5"
                      Text="{Binding ServerName}" />
 
             <Label Grid.Row="1" Content="Address:" HorizontalAlignment="Right" />
-            <TextBox x:Name="ServerAddressTextBox" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
                      Text="{Binding ServerAddress}" />
 
             <Label Grid.Row="2" Content="Port:" HorizontalAlignment="Right" />
-            <TextBox x:Name="ServerPortTextBox" Grid.Row="2" Grid.Column="1" Margin="5,0,0,5"
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,0,0,5"
                      Text="{Binding ServerPort}" />
 
             <Label Grid.Row="3" Content="Password:" HorizontalAlignment="Right" />
-            <TextBox x:Name="ServerPasswordTextBox" Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
                      Text="{Binding ServerPassword}" />
         </Grid>
         
