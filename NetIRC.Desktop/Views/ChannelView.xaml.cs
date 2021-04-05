@@ -28,5 +28,12 @@ namespace NetIRC.Desktop.Views
             var view = CollectionViewSource.GetDefaultView(((ListBox)e.OriginalSource).ItemsSource) as ListCollectionView;
             view.CustomSort = new ChannelUserComparer();
         }
+
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var channelUser = (e.OriginalSource as TextBlock).DataContext as ChannelUser;
+
+            (Application.Current as App).Client.Queries.GetQuery(channelUser.User);
+        }
     }
 }
