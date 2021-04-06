@@ -6,6 +6,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:NetIRC.Desktop.Views"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
         Title="About"
@@ -23,10 +24,15 @@
         <Separator />
         <Label Content="Simple Desktop IRC Client built with NetIRC open-source library." />
         <Label>
-            <Hyperlink NavigateUri="http://github.com/fredimachado/NetIRC.Desktop" RequestNavigate="Hyperlink_RequestNavigate">
-                <TextBlock Text="https://github.com/fredimachado/NetIRC.Desktop" />
+            <Hyperlink x:Name="Link" NavigateUri="https://github.com/fredimachado/NetIRC.Desktop">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="RequestNavigate">
+                        <i:InvokeCommandAction Command="{Binding OpenLinkCommand}" CommandParameter="{Binding NavigateUri, ElementName=Link, Mode=OneWay}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <TextBlock Text="{Binding NavigateUri, ElementName=Link, Mode=OneWay}" />
             </Hyperlink>
         </Label>
-        <Button x:Name="OkButton" Content="OK" IsDefault="True" IsCancel="True" HorizontalAlignment="Right" Margin="0,5" MinWidth="80" />
+        <Button Content="OK" IsDefault="True" IsCancel="True" HorizontalAlignment="Right" Margin="0,5" MinWidth="80" Command="{Binding CloseCommand}" />
     </StackPanel>
 </mah:MetroWindow>

@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using NetIRC.Desktop.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,26 +23,14 @@ namespace NetIRC.Desktop.Views
         private AboutWindow()
         {
             InitializeComponent();
+
+            DataContext = new AboutWindowViewModel(Close);
         }
 
         public AboutWindow(Window parent)
             : this()
         {
             Owner = parent;
-
-            OkButton.Click += (s, e) => Close();
-        }
-
-        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            if (e.Uri is null || string.IsNullOrWhiteSpace(e.Uri.OriginalString))
-            {
-                return;
-            }
-
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
-
-            e.Handled = true;
         }
     }
 }
