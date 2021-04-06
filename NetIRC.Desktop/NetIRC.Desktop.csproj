@@ -123,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\EventAggregator.cs" />
+    <Compile Include="Core\EventAggregatorExtensions.cs" />
+    <Compile Include="Core\IEventAggregator.cs" />
+    <Compile Include="Core\IHandle.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
