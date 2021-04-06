@@ -128,6 +128,7 @@
     <Compile Include="Core\IEventAggregator.cs" />
     <Compile Include="Core\IHandle.cs" />
     <Compile Include="Messages\ConnectMessage.cs" />
+    <Compile Include="Messages\OpenQueryMessage.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

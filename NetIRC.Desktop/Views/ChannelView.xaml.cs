@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetIRC.Desktop.Messages;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using NetIRC.Desktop.Core;
 
 namespace NetIRC.Desktop.Views
 {
@@ -29,11 +31,11 @@ namespace NetIRC.Desktop.Views
             view.CustomSort = new ChannelUserComparer();
         }
 
-        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private async void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var channelUser = (e.OriginalSource as TextBlock).DataContext as ChannelUser;
 
-            (Application.Current as App).Client.Queries.GetQuery(channelUser.User);
+            await App.EventAggregator.PublishOnUIThreadAsync(new OpenQueryMessage(channelUser));
         }
     }
 }

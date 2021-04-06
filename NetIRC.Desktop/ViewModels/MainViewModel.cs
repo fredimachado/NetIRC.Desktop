@@ -59,6 +59,19 @@ namespace NetIRC.Desktop.ViewModels
             await client.ConnectAsync();
         }
 
+        public Task HandleAsync(OpenQueryMessage message, CancellationToken cancellationToken)
+        {
+            App.Client.Queries.GetQuery(message.ChannelUser.User);
+
+            var tab = FindQueryTab(message.ChannelUser.User);
+            if (tab != null)
+            {
+                SelectedTab = tab;
+            }
+
+            return Task.CompletedTask;
+        }
+
         private async void Client_RegistrationCompleted(object sender, EventArgs e)
         {
             var channel = Settings.Default.DefaultChannel;
@@ -84,6 +97,12 @@ namespace NetIRC.Desktop.ViewModels
             {
                 App.Dispatcher.Invoke(() => Tabs.Add(new ChannelViewModel(channel)));
             }
+        }
+
+        private TabItemViewModel FindQueryTab(User user)
+        {
+            return Tabs.OfType<QueryViewModel>()
+                .FirstOrDefault(q => q.Query.User == user);
         }
     }
 }
