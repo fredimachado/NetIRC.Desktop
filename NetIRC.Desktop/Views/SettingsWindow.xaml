@@ -31,20 +31,20 @@
             </Grid.RowDefinitions>
 
             <Label Content="Nickname:" HorizontalAlignment="Right" />
-            <TextBox Grid.Column="1" Margin="5,0,0,5"
-                     Text="{Binding Nick}" />
+            <TextBox x:Name="Nickname" Grid.Column="1" Margin="5,0,0,5"
+                     Text="{Binding Nick, Mode=OneTime}" />
 
             <Label Grid.Row="1" Content="Alternative:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
-                     Text="{Binding Alternative}" />
+            <TextBox x:Name="Alternative" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
+                     Text="{Binding Alternative, Mode=OneTime}" />
 
             <Label Grid.Row="2" Content="Name:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,0,0,0"
-                     Text="{Binding RealName}" />
+            <TextBox x:Name="RealName" Grid.Row="2" Grid.Column="1" Margin="5,0,0,0"
+                     Text="{Binding RealName, Mode=OneTime}" />
 
             <Label Grid.Row="3" Content="Channel:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
-                     Text="{Binding DefaultChannel}" />
+            <TextBox x:Name="DefaultChannel" Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
+                     Text="{Binding DefaultChannel, Mode=OneTime}" />
         </Grid>
         
         <Label Content="Server" FontWeight="Bold" Margin="0,10,0,10" />
@@ -61,20 +61,20 @@
             </Grid.RowDefinitions>
 
             <Label Content="Server Name:" HorizontalAlignment="Right" />
-            <TextBox Grid.Column="1" Margin="5,0,0,5"
-                     Text="{Binding ServerName}" />
+            <TextBox x:Name="ServerName" Grid.Column="1" Margin="5,0,0,5"
+                     Text="{Binding ServerName, Mode=OneTime}" />
 
             <Label Grid.Row="1" Content="Address:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
-                     Text="{Binding ServerAddress}" />
+            <TextBox x:Name="ServerAddress" Grid.Row="1" Grid.Column="1" Margin="5,0,0,5"
+                     Text="{Binding ServerAddress, Mode=OneTime}" />
 
             <Label Grid.Row="2" Content="Port:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="5,0,0,5"
-                     Text="{Binding ServerPort}" />
+            <TextBox x:Name="ServerPort" Grid.Row="2" Grid.Column="1" Margin="5,0,0,5"
+                     Text="{Binding ServerPort, Mode=OneTime}" />
 
             <Label Grid.Row="3" Content="Password:" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
-                     Text="{Binding ServerPassword}" />
+            <TextBox x:Name="ServerPassword" Grid.Row="3" Grid.Column="1" Margin="5,0,0,0"
+                     Text="{Binding ServerPassword, Mode=OneTime}" />
         </Grid>
         
         <Button x:Name="ConnectButton" Content="Connect" Width="100" Margin="20" />

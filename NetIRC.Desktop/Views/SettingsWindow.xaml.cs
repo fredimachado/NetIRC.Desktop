@@ -47,6 +47,16 @@ namespace NetIRC.Desktop.Views
 
         private void Save()
         {
+            Settings.Default.Nick = Nickname.Text;
+            Settings.Default.Alternative = Alternative.Text;
+            Settings.Default.RealName = RealName.Text;
+            Settings.Default.DefaultChannel = DefaultChannel.Text;
+
+            Settings.Default.ServerName = ServerName.Text;
+            Settings.Default.ServerAddress = ServerAddress.Text;
+            Settings.Default.ServerPort = ServerPort.Text;
+            Settings.Default.ServerPassword = ServerPassword.Text;
+
             Settings.Default.Save();
         }
     }
