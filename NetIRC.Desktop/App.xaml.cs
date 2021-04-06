@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetIRC.Connection;
+using NetIRC.Desktop.Core;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,9 +17,29 @@ namespace NetIRC.Desktop
     {
         public Client Client { get; private set; }
 
-        public void SetClient(Client client)
+        public bool IsConnected { get; private set; }
+
+        public static IEventAggregator EventAggregator { get; } = new EventAggregator();
+
+        public Client CreateClient()
         {
-            Client = client;
+            if (IsConnected)
+            {
+                return null;
+            }
+
+            var user = new User(Settings.Default.Nick, Settings.Default.RealName);
+
+            var connection = new TcpClientConnection(Settings.Default.ServerAddress, Convert.ToInt32(Settings.Default.ServerPort));
+
+            connection.Connected += (s, e) => IsConnected = true;
+            connection.Disconnected += (s, e) => IsConnected = false;
+
+            Client = new Client(user, connection);
+
+            Client.SetDispatcherInvoker(Dispatcher.Invoke);
+
+            return Client;
         }
     }
 }

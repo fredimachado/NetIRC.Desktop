@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using NetIRC.Desktop.Messages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,7 +34,7 @@ namespace NetIRC.Desktop.Views
                 Save();
                 Close();
 
-                await parent.ConnectAsync();
+                await App.EventAggregator.PublishOnUIThreadAsync(new ConnectMessage());
             };
 
             OkButton.Click += (s, e) =>
