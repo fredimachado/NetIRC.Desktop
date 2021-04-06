@@ -1,13 +1,21 @@
 ﻿using MvvmHelpers.Commands;
+using NetIRC.Desktop.Messages;
 using NetIRC.Messages;
+using System;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
+using System.Windows.Data;
+using System.Windows.Input;
 
 namespace NetIRC.Desktop.ViewModels
 {
     public class ChannelViewModel : TabItemViewModel
     {
         public Channel Channel { get; }
+
+        public ICommand SortUsersCommand { get; }
+
+        public ICommand OpenQueryCommand { get; }
 
         public ChannelViewModel(Channel channel)
         {
@@ -16,6 +24,21 @@ namespace NetIRC.Desktop.ViewModels
             channel.Messages.CollectionChanged += Messages_CollectionChanged;
 
             SendMessageCommand = new AsyncCommand(SendChannelMessage);
+
+            SortUsersCommand = new Command(SortUsers);
+
+            OpenQueryCommand = new AsyncCommand<ChannelUser>(OpenQuery);
+        }
+
+        private void SortUsers(object items)
+        {
+            var view = CollectionViewSource.GetDefaultView(items) as ListCollectionView;
+            view.CustomSort = new ChannelUserComparer();
+        }
+
+        private async Task OpenQuery(ChannelUser channelUser)
+        {
+            await App.EventAggregator.PublishOnUIThreadAsync(new OpenQueryMessage(channelUser.User));
         }
 
         private async Task SendChannelMessage()

@@ -24,18 +24,5 @@ namespace NetIRC.Desktop.Views
         {
             InitializeComponent();
         }
-
-        private void UsersListView_Loaded(object sender, RoutedEventArgs e)
-        {
-            var view = CollectionViewSource.GetDefaultView(((ListBox)e.OriginalSource).ItemsSource) as ListCollectionView;
-            view.CustomSort = new ChannelUserComparer();
-        }
-
-        private async void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var channelUser = (e.OriginalSource as TextBlock).DataContext as ChannelUser;
-
-            await App.EventAggregator.PublishOnUIThreadAsync(new OpenQueryMessage(channelUser));
-        }
     }
 }

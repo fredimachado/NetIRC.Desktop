@@ -2,8 +2,8 @@
 {
     public class OpenQueryMessage
     {
-        public ChannelUser ChannelUser { get; }
+        public User User { get; }
 
-        public OpenQueryMessage(ChannelUser channelUser) => ChannelUser = channelUser;
+        public OpenQueryMessage(User user) => User = user;
     }
 }

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:NetIRC.Desktop.Views"
              xmlns:models="clr-namespace:NetIRC.Desktop.Models"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -81,7 +82,15 @@
                             ResizeBehavior="PreviousAndNext"
                             Width="1" Background="#41B1E1" />
 
-        <ListBox Grid.Column="2" Grid.Row="0" ItemsSource="{Binding Channel.Users}" Loaded="UsersListView_Loaded" MouseDoubleClick="ListBox_MouseDoubleClick">
+        <ListBox x:Name="Users" Grid.Column="2" Grid.Row="0" ItemsSource="{Binding Channel.Users}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding SortUsersCommand}" CommandParameter="{Binding ItemsSource, ElementName=Users, Mode=OneWay}" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding OpenQueryCommand}" CommandParameter="{Binding SelectedItem, ElementName=Users, Mode=OneWay}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <ListBox.ItemContainerStyle>
                 <Style TargetType="{x:Type ListBoxItem}">
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>

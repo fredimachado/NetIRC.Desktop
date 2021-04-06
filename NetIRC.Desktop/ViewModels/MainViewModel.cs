@@ -61,9 +61,9 @@ namespace NetIRC.Desktop.ViewModels
 
         public Task HandleAsync(OpenQueryMessage message, CancellationToken cancellationToken)
         {
-            App.Client.Queries.GetQuery(message.ChannelUser.User);
+            App.Client.Queries.GetQuery(message.User);
 
-            var tab = FindQueryTab(message.ChannelUser.User);
+            var tab = FindQueryTab(message.User);
             if (tab != null)
             {
                 SelectedTab = tab;
