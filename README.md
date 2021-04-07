@@ -1,6 +1,7 @@
 # NetIRC.Desktop
 [![Build status](https://github.com/fredimachado/NetIRC.Desktop/workflows/CI/badge.svg)](https://github.com/fredimachado/NetIRC.Desktop/actions/workflows/ci.yml)
 [![Latest release](https://badgen.net/github/release/fredimachado/NetIRC.Desktop)](https://github.com/fredimachado/NetIRC.Desktop/releases)
+
 Simple Desktop IRC Client built with NetIRC open-source library.
 
 ![Screenshot](https://raw.githubusercontent.com/fredimachado/NetIRC.Desktop/master/art/NetIRC.Desktop.gif)
