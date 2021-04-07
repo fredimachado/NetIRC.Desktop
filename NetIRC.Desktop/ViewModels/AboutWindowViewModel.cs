@@ -19,12 +19,7 @@ namespace NetIRC.Desktop.ViewModels
 
         private void OpenLink(object link)
         {
-            if (!(link is Uri uri))
-            {
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(uri.OriginalString))
+            if (!(link is Uri uri) || string.IsNullOrWhiteSpace(uri.OriginalString))
             {
                 return;
             }
