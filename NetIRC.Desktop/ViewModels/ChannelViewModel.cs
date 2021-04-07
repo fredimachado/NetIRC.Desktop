@@ -1,7 +1,6 @@
 ﻿using MvvmHelpers.Commands;
 using NetIRC.Desktop.Messages;
 using NetIRC.Messages;
-using System;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
 using System.Windows.Data;

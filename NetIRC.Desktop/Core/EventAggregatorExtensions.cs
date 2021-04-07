@@ -1,8 +1,5 @@
 ﻿using NetIRC.Desktop.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -24,18 +21,6 @@ namespace NetIRC.Desktop
         public static void SubscribeOnPublishedThread(this IEventAggregator eventAggregator, object subscriber)
         {
             eventAggregator.Subscribe(subscriber, f => f());
-        }
-
-        /// <summary>
-        /// Subscribes an instance to all events declared through implementations of <see cref = "IHandle{T}" />.
-        /// </summary>
-        /// <remarks>The subscription is invoked on the thread chosen by the publisher.</remarks>
-        /// <param name="eventAggregator"></param>
-        /// <param name = "subscriber">The instance to subscribe for event publication.</param>
-        [Obsolete("Use SubscribeOnPublishedThread")]
-        public static void Subscribe(this IEventAggregator eventAggregator, object subscriber)
-        {
-            eventAggregator.SubscribeOnPublishedThread(subscriber);
         }
 
         /// <summary>
