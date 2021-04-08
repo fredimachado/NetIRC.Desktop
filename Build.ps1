@@ -85,8 +85,8 @@ Write-Host "ZIP_FILE_NAME=NetIRC.Desktop-${VERSION_FROM_TAG}.zip"
 
 if ([string]::IsNullOrEmpty($Env:GITHUB_ENV) -eq $false) {
     # Set GitHub environment variables
-    Write-Host "GIT_TAG_NAME=${VERSION_FROM_TAG}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
-    Write-Host "ZIP_FILE_NAME=NetIRC.Desktop-${VERSION_FROM_TAG}.zip" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+    echo "GIT_TAG_NAME=${VERSION_FROM_TAG}" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+    echo "ZIP_FILE_NAME=NetIRC.Desktop-${VERSION_FROM_TAG}.zip" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
 }
 
 Get-ChildItem -recurse |? {$_.Name -eq "AssemblyInfo.cs"} | Update-SourceVersion $VERSION_PREFIX "${VERSION_PREFIX}${VERSION_SUFFIX}"
