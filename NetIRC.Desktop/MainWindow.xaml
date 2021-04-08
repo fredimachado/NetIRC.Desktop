@@ -48,7 +48,7 @@
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
 
-    <Grid Background="WhiteSmoke">
+    <Grid>
         <TabControl
             Padding="0"
             ItemsSource="{Binding Tabs}"

@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using ControlzEx.Theming;
+using MahApps.Metro.Controls;
 using NetIRC.Desktop.Messages;
 using NetIRC.Desktop.Properties;
 using System;
@@ -20,6 +21,9 @@ namespace NetIRC.Desktop.Views
     /// </summary>
     public partial class SettingsWindow : MetroWindow
     {
+        private readonly string[] themes = new[] { "Light", "Dark" };
+        public string[] Themes => themes;
+
         private SettingsWindow()
         {
             InitializeComponent();
@@ -54,12 +58,16 @@ namespace NetIRC.Desktop.Views
             Settings.Default.RealName = RealName.Text;
             Settings.Default.DefaultChannel = DefaultChannel.Text;
 
+            Settings.Default.Theme = Theme.SelectedValue.ToString();
+
             Settings.Default.ServerName = ServerName.Text;
             Settings.Default.ServerAddress = ServerAddress.Text;
             Settings.Default.ServerPort = ServerPort.Text;
             Settings.Default.ServerPassword = ServerPassword.Text;
 
             Settings.Default.Save();
+
+            ThemeManager.Current.ChangeTheme(Application.Current, $"{Theme.SelectedValue}.Blue");
         }
     }
 }

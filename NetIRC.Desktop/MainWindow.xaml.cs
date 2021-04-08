@@ -1,4 +1,6 @@
-﻿using MahApps.Metro.Controls;
+﻿using ControlzEx.Theming;
+using MahApps.Metro.Controls;
+using NetIRC.Desktop.Properties;
 using NetIRC.Desktop.ViewModels;
 using NetIRC.Desktop.Views;
 using System;
@@ -33,6 +35,8 @@ namespace NetIRC.Desktop
             DataContext = mainViewModel;
 
             ContentRendered += MainWindow_ContentRendered;
+
+            ThemeManager.Current.ChangeTheme(Application.Current, $"{Settings.Default.Theme}.Blue");
         }
 
         private void MainWindow_ContentRendered(object sender, EventArgs e)

@@ -26,5 +26,8 @@
     <Setting Name="DefaultChannel" Type="System.String" Scope="User">
       <Value Profile="(Default)">#NetIRC</Value>
     </Setting>
+    <Setting Name="Theme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Light</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

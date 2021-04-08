@@ -77,6 +77,27 @@
 
         <Label
             Margin="0,10,0,10"
+            Content="Visual Experience"
+            FontWeight="Bold" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                HorizontalAlignment="Right"
+                Content="Theme:" />
+            <ComboBox x:Name="Theme"
+                Grid.Column="1"
+                Margin="5,0,0,5"
+                IsEditable="False"
+                ItemsSource="{Binding Themes, RelativeSource={RelativeSource AncestorType=mah:MetroWindow}, Mode=OneTime}"
+                SelectedValue="{Binding Theme, Mode=OneTime}" />
+        </Grid>
+
+        <Label
+            Margin="0,10,0,10"
             Content="Server"
             FontWeight="Bold" />
         <Grid>
