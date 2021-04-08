@@ -1,6 +1,7 @@
 ﻿using MvvmHelpers.Commands;
 using NetIRC.Desktop.Core;
 using NetIRC.Desktop.Messages;
+using NetIRC.Desktop.Properties;
 using NetIRC.Messages;
 using System;
 using System.Collections.ObjectModel;

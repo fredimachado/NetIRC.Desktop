@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using NetIRC.Desktop.Messages;
+using NetIRC.Desktop.Properties;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,5 +1,6 @@
 ﻿using NetIRC.Connection;
 using NetIRC.Desktop.Core;
+using NetIRC.Desktop.Properties;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

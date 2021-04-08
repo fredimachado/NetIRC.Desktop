@@ -1,4 +1,5 @@
 ﻿using MvvmHelpers.Commands;
+using NetIRC.Desktop.Properties;
 using System.Threading.Tasks;
 
 namespace NetIRC.Desktop.ViewModels

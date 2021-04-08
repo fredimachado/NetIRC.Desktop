@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:NetIRC.Desktop.Views"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:root="clr-namespace:NetIRC.Desktop"
+    xmlns:props="clr-namespace:NetIRC.Desktop.Properties"
     Title="Settings"
     Width="300"
     Height="Auto"
@@ -19,7 +19,7 @@
 
     <StackPanel
         Margin="20,10,30,10"
-        DataContext="{Binding Source={x:Static root:Settings.Default}}">
+        DataContext="{Binding Source={x:Static props:Settings.Default}}">
         <Label
             Margin="0,0,0,10"
             Content="User Information"
