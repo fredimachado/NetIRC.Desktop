@@ -1,5 +1,6 @@
 ﻿using NetIRC.Connection;
 using NetIRC.Desktop.Core;
+using NetIRC.Desktop.Messages;
 using NetIRC.Desktop.Properties;
 using System;
 using System.Collections.Generic;
@@ -34,13 +35,20 @@ namespace NetIRC.Desktop
             var connection = new TcpClientConnection(Settings.Default.ServerAddress, Convert.ToInt32(Settings.Default.ServerPort));
 
             connection.Connected += (s, e) => IsConnected = true;
-            connection.Disconnected += (s, e) => IsConnected = false;
+            connection.Disconnected += async (s, e) => await Disconnected();
 
             Client = new Client(user, connection);
 
             Client.SetDispatcherInvoker(Dispatcher.Invoke);
 
             return Client;
+        }
+
+        private Task Disconnected()
+        {
+            IsConnected = false;
+
+            return EventAggregator.PublishOnUIThreadAsync(new ClientDisconnectedMessage());
         }
     }
 }
