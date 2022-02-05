@@ -19,6 +19,8 @@ namespace NetIRC.Desktop.ViewModels
         IHandle<OpenQueryMessage>,
         IHandle<ClientDisconnectedMessage>
     {
+        private readonly Client client;
+
         public ObservableCollection<TabItemViewModel> Tabs { get; } = new ObservableCollection<TabItemViewModel>();
 
         private TabItemViewModel selectedTab;
@@ -37,6 +39,13 @@ namespace NetIRC.Desktop.ViewModels
             ShowAboutWindow = new Command(showAboutAction);
 
             App.EventAggregator.SubscribeOnPublishedThread(this);
+
+            client = App.CreateClient();
+
+            client.RegistrationCompleted += Client_RegistrationCompleted;
+
+            client.Queries.CollectionChanged += Queries_CollectionChanged;
+            client.Channels.CollectionChanged += Channels_CollectionChanged;
         }
 
         public async Task HandleAsync(ConnectMessage message, CancellationToken cancellationToken)
@@ -47,16 +56,9 @@ namespace NetIRC.Desktop.ViewModels
                 return;
             }
 
-            var client = App.CreateClient();
-
             var serverTab = new ServerViewModel(client);
             Tabs.Add(serverTab);
             SelectedTab = serverTab;
-
-            client.RegistrationCompleted += Client_RegistrationCompleted;
-
-            client.Queries.CollectionChanged += Queries_CollectionChanged;
-            client.Channels.CollectionChanged += Channels_CollectionChanged;
 
             await client.ConnectAsync();
         }
