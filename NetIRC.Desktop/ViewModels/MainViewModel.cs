@@ -14,7 +14,10 @@ using System.Windows.Input;
 
 namespace NetIRC.Desktop.ViewModels
 {
-    public class MainViewModel : BaseViewModel, IHandle<ConnectMessage>, IHandle<OpenQueryMessage>
+    public class MainViewModel : BaseViewModel,
+        IHandle<ConnectMessage>,
+        IHandle<OpenQueryMessage>,
+        IHandle<ClientDisconnectedMessage>
     {
         public ObservableCollection<TabItemViewModel> Tabs { get; } = new ObservableCollection<TabItemViewModel>();
 
@@ -68,6 +71,12 @@ namespace NetIRC.Desktop.ViewModels
                 SelectedTab = tab;
             }
 
+            return Task.CompletedTask;
+        }
+
+        public Task HandleAsync(ClientDisconnectedMessage message, CancellationToken cancellationToken)
+        {
+            MessageBox.Show("Disconnected...");
             return Task.CompletedTask;
         }
 
