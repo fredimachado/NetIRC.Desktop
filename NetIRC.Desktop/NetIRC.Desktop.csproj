@@ -84,7 +84,7 @@
       <HintPath>..\packages\Refractored.MvvmHelpers.1.6.2\lib\net461\MvvmHelpers.dll</HintPath>
     </Reference>
     <Reference Include="NetIRC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NetIRC.1.1.0-preview.3\lib\net461\NetIRC.dll</HintPath>
+      <HintPath>..\packages\NetIRC.1.1.1\lib\net461\NetIRC.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -133,6 +133,7 @@
     <Compile Include="Core\EventAggregatorExtensions.cs" />
     <Compile Include="Core\IEventAggregator.cs" />
     <Compile Include="Core\IHandle.cs" />
+    <Compile Include="Messages\ClientDisconnectedMessage.cs" />
     <Compile Include="Messages\ConnectMessage.cs" />
     <Compile Include="Messages\OpenQueryMessage.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
